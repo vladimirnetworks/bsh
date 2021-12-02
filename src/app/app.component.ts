@@ -74,7 +74,7 @@ export class AppComponent {
   }
 
   addnew() {
-
+    this.latest.add({ id: '0', title: 'new', price: '1000', photos: '' });
   }
 
   fileselect(a:any,b:any) {
@@ -94,8 +94,10 @@ export class AppComponent {
 
     
   }
-  remove(a:any) {
-
+  remove(obj:any) {
+    if (confirm("remove "+obj.title+" ?")) {
+      this.latest.remove(obj);
+    }
   }
 }
 
