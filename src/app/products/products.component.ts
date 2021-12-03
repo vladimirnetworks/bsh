@@ -1,20 +1,23 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-
-import { map, Observable, tap } from 'rxjs';
-import { ApiService } from './api.service';
-import { Apilist, xobj } from './apilist';
-import { editobj } from './editobj';
-
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { addphotoModalContent } from './addphotomodal';
+import { map, Observable, tap } from 'rxjs';
+import { addphotoModalContent } from '../addphotomodal';
+import { ApiService } from '../api.service';
+import { Apilist, xobj } from '../apilist';
+import { editobj } from '../editobj';
+
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.css']
 })
-export class AppComponent {
+export class ProductsComponent {
+
+
+
+  
   title = 'bsh';
   latest;
   itemsx: Observable<xobj>;
@@ -98,7 +101,9 @@ export class AppComponent {
       this.latest.remove(obj);
     }
   }
+
 }
+
 
 export class myProduct extends editobj {
 

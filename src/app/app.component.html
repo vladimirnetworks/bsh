@@ -1,71 +1,10 @@
-<button (click)="addnew()" class="btn btn-primary">addNew</button>
+<div class="p-4 p-md-5 mb-4 text-white  bg-dark">
+    app :
 
-<div class="container-fluid">
-    <div class="" *ngIf="this.itemsx | async as jak">
-        <div class="row">
-            <div class="col-sm-6 col-lg-3 text-center" style="margin-bottom:20px;" *ngFor="let obj of jak.items">
-                <div class="border border-secondary rounded {{obj.status}}" style="position:relative">
-
-                    <div class="zard" style="left:0px;top:0px;position:absolute;width:100%;height:100%;background-color:yellow;z-index:99999;opacity:0.5">
-
-                    </div>
-
-
-                    <a style="text-decoration:none" target="_blank" href="https://www.behkiana.ir/product/{{ obj.id }}">{{ obj.title }}</a
-          >
-
-          <br />
-          <input
-            style="direction:rtl;text-align:right;width:100%"
-            placeholder="title"
-            [(ngModel)]="obj.title"
-          />
-
-          <input
-          style="direction:rtl;text-align:right;width:100%"
-          placeholder="tinytitle"
-          [(ngModel)]="obj.tinytitle"
-        />
-        
-          <input
-            style="width:100%"
-            type="number"
-            [(ngModel)]="obj.price"
-            placeholder="price"
-          />
-
-
-          <input style="display:none" type="file" (change)="fileselect($event.target, obj)" />
-
-          <button (click)="addphoto(obj)" class="btn btn-success m-1">addphoto</button>
-
-          <hr />
-
-          <div
-            style="position:relative"
-            *ngFor="let im of obj.gal"
-            (click)="obj.gal.splice(obj.gal.indexOf(im), 1)"
-          >
-            <button class="btn btn-danger">x</button>
-            <img
-              style="border:1px solid black;max-width:50px;"
-              src="{{ im['small'] | addbefore }}"
-            />
-          </div>
-
-          <textarea
-            [(ngModel)]="obj.caption"
-            style="direction:rtl;text-align:right;min-height:150px;width:100%"
-          ></textarea>
-
-          <button (click)="obj.save()" class="btn btn-success m-1">save</button>
-          <button (click)="remove(obj)" class="btn btn-danger m-1">
-            remove
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+    <a class="btn btn-primary m-1" routerLink="/products">products</a>
+    <a class="btn btn-primary m-1" routerLink="/categories">category</a>
 </div>
 
-<button class="btn btn-primary m-3" (click)="this.latest.more()">more</button>
+<router-outlet></router-outlet>
+
+<hr>
