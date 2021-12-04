@@ -12,7 +12,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from './products/products.component';
 import { AuthService } from './auth.service';
 import { CategoriesComponent } from './categories/categories.component';
-
+import { CommonModule } from '@angular/common';
+import { catModalContent } from './catmodal';
 
 const appRoutes: Routes = [
 
@@ -20,7 +21,7 @@ const appRoutes: Routes = [
 
   { path: 'products', component: ProductsComponent , canActivate:[AuthService]},
   
-  { path: 'categories', component: CategoriesComponent , canActivate:[AuthService]},
+  { path: 'categories/:parentid', component: CategoriesComponent , canActivate:[AuthService]},
 
   
  // { path: 'login', component: LoginComponent},
@@ -31,9 +32,10 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent,AddbeforePipe,ProductsComponent, CategoriesComponent
+    catModalContent,AppComponent,AddbeforePipe,ProductsComponent, CategoriesComponent
   ],
   imports: [
+    CommonModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,

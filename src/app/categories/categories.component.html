@@ -1,1 +1,21 @@
-<p>categories works!</p>
+<button (click)="addnew()" class="btn btn-primary">addNew</button>
+
+<div class="container-fluid">
+    <div class="" *ngIf="this.itemsx | async as jak">
+
+        <div *ngFor="let obj of jak.items">
+            <input style="direction:rtl;text-align:right;" placeholder="title" [(ngModel)]="obj.title" />
+            <button (click)="obj.save()" class="btn btn-success m-1">save</button>
+            <button (click)="remove(obj)" class="btn btn-danger m-1">
+                remove
+            </button>
+
+
+
+            <a class="btn btn-primary m-1" routerLink="/categories/{{obj.id}}">sub</a>
+
+        </div>
+
+    </div>
+
+</div>

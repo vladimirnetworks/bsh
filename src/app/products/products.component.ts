@@ -7,6 +7,7 @@ import { Apilist, xobj } from '../apilist';
 import { editobj } from '../editobj';
 
 import { FormsModule } from '@angular/forms';
+import { catModalContent } from '../catmodal';
 
 @Component({
   selector: 'app-products',
@@ -96,6 +97,25 @@ export class ProductsComponent {
 
     
   }
+
+
+
+  cat(obj:any) {
+    const modalRefx = this.modalService.open(catModalContent);
+    modalRefx.componentInstance.rootid = 0;
+
+
+    modalRefx.componentInstance.catahnld = function(res:any) {
+    
+
+       obj.cat = res;
+
+      console.log(res);
+    };
+
+  }
+
+
   remove(obj:any) {
     if (confirm("remove "+obj.title+" ?")) {
       this.latest.remove(obj);
@@ -115,6 +135,8 @@ export class myProduct extends editobj {
   farsiprice: any;
   caption: any;
   gal: any;
+
+  cat:any = "";
 
   override fillable = ['title', 'price', 'photos', 'caption', 'gal','tinytitle'];
 }
