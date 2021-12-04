@@ -105,12 +105,34 @@ export class ProductsComponent {
     modalRefx.componentInstance.rootid = 0;
 
 
+    modalRefx.componentInstance.prodobj = obj;
+
     modalRefx.componentInstance.catahnld = function(res:any) {
     
 
-       obj.cat = res;
+        //console.log(res.catid);
 
-      console.log(res);
+       if (res.do == 'add') {
+        obj.cat.push(res.catid);
+       }
+
+       if (res.do == 'remove') {
+
+
+        var i = 0;
+        while (i <  obj.cat.length) {
+          if ( obj.cat[i] === res.catid) {
+            obj.cat.splice(i, 1);
+          } else {
+            ++i;
+          }
+        }
+
+       }
+     
+       
+       console.log(obj.cat);
+
     };
 
   }
@@ -136,7 +158,7 @@ export class myProduct extends editobj {
   caption: any;
   gal: any;
 
-  cat:any = "";
+  cat:any = [];
 
-  override fillable = ['title', 'price', 'photos', 'caption', 'gal','tinytitle'];
+  override fillable = ['title', 'price', 'photos', 'caption', 'gal','tinytitle','cat'];
 }

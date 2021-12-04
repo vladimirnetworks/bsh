@@ -41,13 +41,13 @@
           <input style="display:none" type="file" (change)="fileselect($event.target, obj)" />
 
 
-          <button (click)="cat(obj)" class="btn btn-success m-1">cat</button>
+          <button *ngIf="obj.id > 0" (click)="cat(obj)" class="btn btn-success m-1">cat</button>
 
 
           <button (click)="addphoto(obj)" class="btn btn-success m-1">addphoto</button>
 
 
-          {{obj.cat}}
+         
           
           <hr />
 

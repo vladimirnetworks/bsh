@@ -17,7 +17,7 @@ import { editobj } from './editobj';
     selector: 'cat-modal-content',
     template: `
       <div class="modal-header">
-        <h4 class="modal-title">cat</h4>
+        <h4 class="modal-title">cats of : {{prodobj.tinytitle}}</h4>
         <button type="button" class="btn btn-danger" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -27,7 +27,7 @@ import { editobj } from './editobj';
       <div class="" *ngIf="this.itemsx | async as jak" style="direction:rtl">
 
         <div *ngFor="let obj of jak.items" class="m-3">
-        <input type="checkbox"  (change)="sett(obj.id,$event)">
+        <input type="checkbox" [checked]="chechekdornot(obj.id)" (change)="sett(obj.id,$event)">
 
         {{obj.title}} <button class="btn btn-success" (click)="cat(obj,obj.id)">sub</button>
         </div>
@@ -48,6 +48,8 @@ import { editobj } from './editobj';
 
     @Input() catahnld:any;
 
+      @Input() prodobj:any;
+
     constructor( private api: ApiService,public activeModal: NgbActiveModal,    private modalService: NgbModal) {
 
 
@@ -66,13 +68,22 @@ import { editobj } from './editobj';
 
     }
   
+    chechekdornot(id:any) {
+
+      var ch = this.prodobj.cat.indexOf(id);
+      if (ch ===0 || ch >0) {
+           return true;
+      } else {
+      return false;
+      }
+    }
 
     sett(a:any,b:any) {
    
    if (b.target.checked) {
-     this.catahnld({do:"add",a});
+     this.catahnld({do:"add","catid":a});
    } else {
-    this.catahnld({do:"remove",a});
+    this.catahnld({do:"remove","catid":a});
    }
     }
 
@@ -80,6 +91,8 @@ import { editobj } from './editobj';
     cat(obj:any,rootid:any) {
       const modalRef = this.modalService.open(catModalContent);
             modalRef.componentInstance.rootid = rootid;
+
+            modalRef.componentInstance.prodobj = this.prodobj;
 
             modalRef.componentInstance.catahnld = this.catahnld;
 
