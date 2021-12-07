@@ -1,0 +1,15 @@
+.changed input {
+    background-color: rgb(230, 65, 44);
+}
+
+.idle input {
+    background-color: white;
+}
+
+.saving input {
+    background-color: rgb(255, 201, 83);
+}
+
+.row:hover {
+    background-color: burlywood;
+}

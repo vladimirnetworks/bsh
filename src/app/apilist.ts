@@ -15,6 +15,7 @@ export class Apilist {
   addSubj;
   removeSubj;
   publicpath;
+  page:any;
 
 
   req(path: string) {
@@ -41,7 +42,8 @@ export class Apilist {
     this.removeSubj = new Subject<any>();
     let removeSubjob:Observable<xobj> = this.removeSubj.asObservable();
 
-
+    this.page = 1;
+   
 
     let first = this.req(this.path).pipe(map(function (x) {
 
@@ -60,7 +62,7 @@ export class Apilist {
 
 
       concatMap((p) => {
-        let xzc = this.req('products' + '?page=2').pipe(map(function (x) {
+        let xzc = this.req('products' + '?page='+p).pipe(map(function (x) {
 
           let r = new xobj();
           r.items = x;
@@ -126,7 +128,8 @@ export class Apilist {
 
 
   more() {
-    this.nextSubj.next(2);
+    this.page = this.page+1;
+    this.nextSubj.next(this.page);
   }
 
   add(fields: any) {

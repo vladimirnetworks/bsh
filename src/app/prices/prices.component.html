@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <div class="" *ngIf="this.itemsx | async as jak">
+
+        <div *ngFor="let obj of jak.items" class="row {{obj.status}}" style="direction:rtl">
+
+            <div class="col">{{obj.title}}</div>
+
+            <div class="col text-right"> <input style="direction:ltr" (change)="modelChanged($event,obj)" (keyup.enter)="update(obj)" type="number" [(ngModel)]="obj.price" placeholder="price" /></div>
+
+        </div>
+    </div>
+
+</div>
+
+<button class="btn btn-primary m-3" (click)="this.latest.more()">more</button>
