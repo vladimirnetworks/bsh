@@ -77,7 +77,7 @@ export class ProductsComponent {
   }
 
   addnew() {
-    this.latest.add({ id: '0', title: 'new', price: '1000', photos: '' });
+    this.latest.add({ id: '0', title: '', price: '', photos: '' });
   }
 
   fileselect(a:any,b:any) {
@@ -149,16 +149,17 @@ export class ProductsComponent {
 
 export class myProduct extends editobj {
 
-  title: any;
-  tinytitle: any;
+  title!: any;
+  tinytitle!: any;
+  searchkey!: any;
   price!: any;
   photos!: any;
-  thumb: any;
-  farsiprice: any;
-  caption: any;
-  gal: any;
+  thumb!: any;
+  farsiprice!: any;
+  caption!: any;
+  gal!: any;
 
   cat:any = [];
 
-  override fillable = ['title', 'price', 'photos', 'caption', 'gal','tinytitle','cat'];
+  override fillable = ['title', 'price', 'photos', 'caption', 'gal','tinytitle','cat','searchkey'];
 }

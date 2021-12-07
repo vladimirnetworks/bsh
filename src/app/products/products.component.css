@@ -25,3 +25,11 @@ p {
 .saving {
     animation: zoominoutsinglefeatured .1s infinite;
 }
+
+.container-fluid {
+    background-color: burlywood;
+}
+
+input {
+    margin: 4px;
+}
