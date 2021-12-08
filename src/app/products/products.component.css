@@ -19,11 +19,11 @@ p {
 }
 
 .saving .zard {
-    display: inline;
+    display: none;
 }
 
 .saving {
-    animation: zoominoutsinglefeatured .1s infinite;
+    animation: zoominoutsinglefeatured .3s 5;
 }
 
 .container-fluid {
