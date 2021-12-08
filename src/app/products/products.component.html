@@ -28,8 +28,8 @@
 
                     <hr />
 
-                    <div style="position:relative" *ngFor="let im of obj.gal" (click)="obj.gal.splice(obj.gal.indexOf(im), 1)">
-                        <button class="btn btn-danger">x</button>
+                    <div style="position:relative" *ngFor="let im of obj.gal">
+                        <button class="btn btn-danger" (click)="obj.gal.splice(obj.gal.indexOf(im), 1)">x</button>
                         <img style="border:1px solid black;max-width:50px;" src="{{ im['small'] | addbefore }}" />
                     </div>
 
