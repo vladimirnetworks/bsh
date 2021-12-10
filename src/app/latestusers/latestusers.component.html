@@ -1,0 +1,9 @@
+<div class="" *ngIf="this.itemsx | async as jak">
+
+    <div *ngFor="let obj of jak.items" class="rounded border border-primary m-2 p-2  {{obj.status}}" style="direction:ltr">
+
+        user #{{obj.liteauth_id}}
+        <hr> {{obj.useragent}}
+    </div>
+
+</div>
