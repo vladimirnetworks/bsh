@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <div class="" *ngIf="this.itemsx | async as jak">
+
+        <div *ngFor="let obj of jak.items" class="border border-primary m-2 p-2  {{obj.status}}" style="direction:rtl">
+
+            <div class="col" style="direction:ltr">{{obj.date}} <span class="pay{{obj.payment_status}}">{{chpeyment(obj.payment_status)}}</span>
+
+
+                <select [(ngModel)]="obj.shipping_status" (ngModelChange)="obj.save()">
+                    <option value="0">در حال بررسی</option>
+                    <option value="1" >ارسال شده</option>
+                    <option value="2">تحویل داده شده</option>
+                    <option value="3">کنسل</option>
+                </select>
+
+
+
+
+            </div>
+
+            <div class="col">{{obj.encoded_id}}</div>
+            <div class="col">{{obj.phone}}</div>
+            <div class="col">{{obj.address}}</div>
+
+            <div class="col">{{obj.cart.amount}}</div>
+
+            <div *ngFor="let cart of obj.cart.cart">
+                <div>{{cart['title']}}</div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+</div>
+
+<button class="btn btn-primary m-3" (click)="this.latest.more()">more</button>
