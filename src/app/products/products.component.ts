@@ -42,6 +42,7 @@ export class ProductsComponent {
         x.items.map((itm: myProduct) => {
           itm.gal = [];
 
+          itm.dtl = itm.caption.trim().replace(/\n/g,"[br]");
           itm.farsiprice =
             itm.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') +
             ' تومان ';
@@ -160,6 +161,8 @@ export class myProduct extends editobj {
   gal!: any;
 
   cat:any = [];
+
+  dtl:any;
 
   override fillable = ['title', 'price', 'photos', 'caption', 'gal','tinytitle','cat','searchkey'];
 }
