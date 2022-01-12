@@ -38,7 +38,10 @@ export class editobj {
     let savex;
 
     if (!this.id || this.id == 0) {
-      savex = this.api.post(this.path, saveobj).subscribe((ret) => {
+
+     
+
+      savex = this.api.post(this.path.replace(/\?.*/,""), saveobj).subscribe((ret) => {
         this.id = ret['data']['id'];
         this.status = "idle";
 
@@ -46,7 +49,7 @@ export class editobj {
     } else {
        savex = saveobj['id'] = this['id'];
       this.api
-        .put(this.path + '/' + this['id'], saveobj)
+        .put(this.path.replace(/\?.*/,"") + '/' + this['id'], saveobj)
         .subscribe((ret) => {
           this.status = "idle";
         });
@@ -62,7 +65,7 @@ export class editobj {
     console.log(this.id);
 
     this.api
-      .delete(this.path + '/' + this['id'], {})
+      .delete(this.path.replace(/\?.*/,"") + '/' + this['id'], {})
       .subscribe(console.log);
 
 

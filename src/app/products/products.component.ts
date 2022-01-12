@@ -18,7 +18,7 @@ export class ProductsComponent {
 
 
 
-  
+  q:any = "";
   title = 'bsh';
   latest;
   itemsx: Observable<xobj>;
@@ -37,7 +37,7 @@ export class ProductsComponent {
     this.latest = locallates;
 
     this.itemsx = locallates.ret.pipe(
-      tap(console.log),
+
       map(function (x) {
         x.items.map((itm: myProduct) => {
           itm.gal = [];
@@ -50,31 +50,54 @@ export class ProductsComponent {
           if (itm.photos) {
             var parseim = JSON.parse(itm.photos);
             for (var i = 0; i < parseim.length; i++) {
-              // itm.gal.push(parseim[i]['small']);
+           
 
-              if (true) {
-                //parseim[i]['small'] = "https://www.behkiana.ir/"+parseim[i]['small'] ;
-              }
             }
 
             itm.gal = parseim;
           }
 
-          if (itm.photos && false) {
-            let photos = JSON.parse(itm.photos);
 
-            itm.thumb =
-              'https://shopid.ir/De-Ordiner-Skin-Serum-Model-Lactic-Acid-Volume-30-ml-2.jpg?' +
-              photos[0]['small'];
-          }
           return itm;
         });
         return x;
       })
-    );;
+    );
 
 
 
+  }
+
+  fetch() {
+    let locallates = new Apilist('products?q='+this.q, this.api, myProduct);
+    this.latest = locallates;
+    this.itemsx = locallates.ret.pipe(
+
+      map(function (x) {
+        x.items.map((itm: myProduct) => {
+          itm.gal = [];
+
+          itm.dtl = itm.caption.trim().replace(/\n/g,"[br]");
+          itm.farsiprice =
+            itm.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') +
+            ' تومان ';
+
+          if (itm.photos) {
+            var parseim = JSON.parse(itm.photos);
+            for (var i = 0; i < parseim.length; i++) {
+           
+
+            }
+
+            itm.gal = parseim;
+          }
+
+
+          return itm;
+        });
+        return x;
+      })
+    );
   }
 
   addnew() {

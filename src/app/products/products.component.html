@@ -1,6 +1,20 @@
 <button (click)="addnew()" class="btn btn-primary">addNew</button>
-<br><br>
+
+
+
+
+
+<br>
+
+<div style="text-align:center">
+
+    <input [(ngModel)]="q" (keyup)="fetch()" style="text-align:right;direction:rtl;" class="p-2" placeholder="search ..." />
+    <br>
+</div>
+
 <div class="container-fluid">
+
+
     <div class="" *ngIf="this.itemsx | async as jak">
         <div class="row">
             <div class="col-sm-6 col-lg-4 text-center p-4" style="" *ngFor="let obj of jak.items">

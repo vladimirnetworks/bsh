@@ -62,7 +62,9 @@ export class Apilist {
 
 
       concatMap((p) => {
-        let xzc = this.req(this.path + '?page='+p).pipe(map(function (x) {
+
+       
+        let xzc = this.req(this.path + (/\?/.test(this.path) ? "&" : "?") +'page='+p).pipe(map(function (x) {
 
           let r = new xobj();
           r.items = x;
