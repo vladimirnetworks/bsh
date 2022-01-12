@@ -42,6 +42,8 @@
                     <br>
                     <a *ngIf="obj.id > 0" class="btn btn-warning" target="_blank" href="https://www.behkiana.ir/instagen.php?title={{obj.title}}&tinytitle={{obj.tinytitle}}&price={{obj.price}}&dtl={{obj.dtl}}&imagesrc={{ obj.gal[0]['big']}}">instagen</a>
 
+                    <input type="checkbox" *ngIf="obj.id > 0" value="1" [(ngModel)]="obj.instagramed" />
+
                 </div>
             </div>
         </div>

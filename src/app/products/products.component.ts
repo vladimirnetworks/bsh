@@ -152,6 +152,7 @@ export class myProduct extends editobj {
 
   title!: any;
   tinytitle!: any;
+  instagramed!: any;
   searchkey!: any;
   price!: any;
   photos!: any;
@@ -164,5 +165,5 @@ export class myProduct extends editobj {
 
   dtl:any;
 
-  override fillable = ['title', 'price', 'photos', 'caption', 'gal','tinytitle','cat','searchkey'];
+  override fillable = ['title', 'price', 'photos', 'caption', 'gal','tinytitle','cat','searchkey','instagramed'];
 }
