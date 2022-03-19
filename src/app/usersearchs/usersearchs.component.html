@@ -1,0 +1,12 @@
+<div class="" *ngIf="this.itemsx | async as jak">
+
+    <div *ngFor="let obj of jak.items" class="rounded border border-primary m-2 p-2  {{obj.status}}" style="direction:ltr">
+
+        user #{{obj.liteauth_id}}
+        <hr> {{obj.useragent}}
+        <br> {{obj.url | decode}}
+    </div>
+
+    <button class="btn btn-primary m-3" (click)="this.latest.more()">more</button>
+    
+</div>
