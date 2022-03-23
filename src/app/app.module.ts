@@ -20,6 +20,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { OrdersPipe } from './orders.pipe';
 import { LatestusersComponent } from './latestusers/latestusers.component';
 import { urldecodePipe, UsersearchsComponent } from './usersearchs/usersearchs.component';
+import { MonitorComponent } from './monitor/monitor.component';
 
 const appRoutes: Routes = [
 
@@ -36,6 +37,8 @@ const appRoutes: Routes = [
   { path: 'latestusers', component: LatestusersComponent , canActivate:[AuthService]},
 
   { path: 'usersearchs', component: UsersearchsComponent , canActivate:[AuthService]},
+
+  { path: 'monitor', component: MonitorComponent , canActivate:[AuthService]},
   
  // { path: 'login', component: LoginComponent},
 
@@ -45,7 +48,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    catModalContent,AppComponent,AddbeforePipe,urldecodePipe,ProductsComponent, CategoriesComponent, PricesComponent, OrdersComponent, OrdersPipe, LatestusersComponent,  UsersearchsComponent
+    catModalContent,AppComponent,AddbeforePipe,urldecodePipe,ProductsComponent, CategoriesComponent, PricesComponent, OrdersComponent, OrdersPipe, LatestusersComponent,  UsersearchsComponent , MonitorComponent
   ],
   imports: [
     CommonModule,
