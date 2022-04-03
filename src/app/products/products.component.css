@@ -33,3 +33,7 @@ p {
 input {
     margin: 4px;
 }
+
+.ysarchived {
+    opacity: 0.1;
+}

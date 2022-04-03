@@ -42,6 +42,12 @@ export class ProductsComponent {
         x.items.map((itm: myProduct) => {
           itm.gal = [];
 
+          if (itm.isarchive) {
+          itm.archived  = "ysarchived";
+          } else {
+            itm.archived  = "noarchive";
+          }
+
           itm.dtl = itm.caption.trim().replace(/\n/g,"[br]");
           itm.farsiprice =
             itm.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') +
@@ -77,7 +83,15 @@ export class ProductsComponent {
         x.items.map((itm: myProduct) => {
           itm.gal = [];
 
+      
+          if (itm.isarchive) {
+            itm.archived  = "ysarchived";
+            } else {
+              itm.archived  = "noarchive";
+            }
+
           itm.dtl = itm.caption.trim().replace(/\n/g,"[br]");
+          itm.archived = itm.caption.trim().replace(/\n/g,"[br]");
           itm.farsiprice =
             itm.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') +
             ' تومان ';
@@ -92,6 +106,8 @@ export class ProductsComponent {
             itm.gal = parseim;
           }
 
+
+         
 
           return itm;
         });
@@ -183,10 +199,13 @@ export class myProduct extends editobj {
   farsiprice!: any;
   caption!: any;
   gal!: any;
+  isarchive!:any;
 
   cat:any = [];
 
   dtl:any;
+  archived:any;
 
-  override fillable = ['title', 'price', 'photos', 'caption', 'gal','tinytitle','cat','searchkey','instagramed'];
+
+  override fillable = ['title', 'price', 'photos', 'caption', 'gal','tinytitle','cat','searchkey','instagramed','isarchive'];
 }

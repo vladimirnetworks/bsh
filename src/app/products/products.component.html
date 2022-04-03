@@ -18,13 +18,13 @@
     <div class="" *ngIf="this.itemsx | async as jak">
         <div class="row">
             <div class="col-sm-6 col-lg-4 text-center p-4" style="" *ngFor="let obj of jak.items">
-                <div class="shadow p-3 mb-5 bg-white rounded   rounded p-4 {{obj.status}}" style="position:relative;background-color:white">
+                <div class="{{obj.archived}} shadow p-3 mb-5 bg-white rounded   rounded p-4 {{obj.status}} {{obj.archived}}" style="position:relative;background-color:white">
 
                     <div class="zard" style="left:0px;top:0px;position:absolute;width:100%;height:100%;background-color:yellow;z-index:99999;opacity:0.5">
 
                     </div>
 
-
+               
                     <input class="form-control" style="direction:rtl;text-align:right;width:100%" placeholder="title" [(ngModel)]="obj.title" />
 
                     <input class="form-control" style="direction:rtl;text-align:right;width:100%" placeholder="tiny title" [(ngModel)]="obj.tinytitle" />
@@ -57,7 +57,7 @@
                     <a *ngIf="obj.id > 0" class="btn btn-warning" target="_blank" href="https://www.behkiana.ir/instagen.php?title={{obj.title}}&tinytitle={{obj.tinytitle}}&price={{obj.price}}&dtl={{obj.dtl}}&imagesrc={{ obj.gal[0]['big']}}">instagen</a>
                         <img *ngIf="obj.id == -10" src="https://www.behkiana.ir/api/flyphoto/{{obj.id}}"/>
                     <input type="checkbox" *ngIf="obj.id > 0" value="1" [(ngModel)]="obj.instagramed" />
-
+                    <input type="checkbox" *ngIf="obj.id > 0" value="1" [(ngModel)]="obj.isarchive" />
                 </div>
             </div>
         </div>
